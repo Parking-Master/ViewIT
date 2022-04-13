@@ -18,12 +18,12 @@ function viewit(url) {
     }
     obj.onreadystatechange = function() {
       if (obj.readyState == 4) {
-        callback(obj);
+        callback(obj.response);
       }
     }
     obj.open(method, url, true);
     obj.send(params);
-    return obj;
+    return obj.response;
   }
   return _get("https://" + serverURL + "/action?action=view&url=" + encodeURIComponent(url), "get", data => {
     return data;
